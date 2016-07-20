@@ -9,12 +9,12 @@ import datetime
 import sys
 import getopt
 
-def check_date_with_wcparams(obj_expiredate,date_today,diff_date,umbral_warning,umbral_critical):
-    if diff_date.days > umbral_warning:
+def check_date_with_wcparams(obj_expiredate,date_today,diff_date,value_warning,value_critical):
+    if diff_date.days > value_warning:
         return 0 # OK
     else:
-        if diff_date.days <= umbral_warning:
-            if diff_date.days <= umbral_critical:
+        if diff_date.days <= value_warning:
+            if diff_date.days <= value_critical:
                 return 2 # CRITICAL
             else:
                 return 1 # WARNING
@@ -41,7 +41,9 @@ def usage(version):
         sys.exit(0)
 
 if __name__ == "__main__":
-        version = '0.0.1'
+        value_warning=int(30)
+        value_critical=int(15)
+        version = '0.0.2'
         silent = False
         options, remainder = getopt.gnu_getopt(sys.argv[1:], 'H:p:w:c:sh', ['Host=','port=','warning=','critical=',])
         #print 'OPTIONS   :', options
@@ -56,9 +58,10 @@ if __name__ == "__main__":
             elif opt in ('-s', '--silent'):
                 silent = True
             elif opt in ('-w', '--warn'):
-                 umbral_warning = int(arg)
+                value_warning = int(arg)
             elif opt in ('-c', '--crit'):
-                 umbral_critical = int(arg)
+                value_critical = int(arg)
+
 
         date_today = datetime.datetime.now()#.strftime('%b %d %H:%M:%S %Y %Z')
         openssl_cmd='echo | openssl s_client -connect '+_host+':'+_port+' 2>/dev/null | openssl x509 -noout -dates'
@@ -68,5 +71,5 @@ if __name__ == "__main__":
         obj_expiredate = datetime.datetime.strptime(expiredate, '%b %d %H:%M:%S %Y %Z') # object transformation
         diff_date = obj_expiredate - date_today # difference of obj_expiredate - date_today
         
-        status = check_date_with_wcparams(obj_expiredate,date_today,diff_date,umbral_warning,umbral_critical) # Devuelve si es OK,W,C
+        status = check_date_with_wcparams(obj_expiredate,date_today,diff_date,value_warning,value_critical) # Devuelve si es OK,W,C
         print_to_stdout(status,diff_date,silent) # Salida
