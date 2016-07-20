@@ -9,6 +9,9 @@ Usage: certcheck -H [Hostname or IP] -p [port] -w [days warning] -c [days critic
 -s --silent: Returns only the difference in days between Now and expire date <br>
  
 #Examples:
+certcheck.py -H github.com -p 443 <br>
+OK: 665 days left for github.com
+
 certcheck.py -H github.com -p 443 -w 60 -c 30 <br>
 OK: 665 days left for github.com
 
