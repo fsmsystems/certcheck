@@ -33,7 +33,7 @@ def print_to_stdout(status,diff_date,silent):
 
 def usage(version):
         print 'Certcheck '+version+ '(FSM)'
-        print 'Usage: checkcert -H [Hostname or IP] -p [port] -w [days warning] -c [days critical] -s (silent)' 
+        print 'Usage: certcheck -H [Hostname or IP] -p [port] -w [days warning] -c [days critical] -s (silent)' 
         print ' -H --host: Hostname or IP'
         print ' -p --port: HTTPS port'
         print ' -w or -c: Warning and Critical days to expire optional values'
