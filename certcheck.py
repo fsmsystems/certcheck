@@ -29,7 +29,7 @@ def check_date_with_wcparams(obj_expiredate,date_today,diff_date,value_warning,v
         return 0 # OK
     else:
         if diff_date.days <= value_warning:
-            if diff_date.days <= value_critical:
+            if diff_date.days >= value_critical:
                 return 2 # CRITICAL
             else:
                 return 1 # WARNING
