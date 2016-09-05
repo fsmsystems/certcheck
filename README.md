@@ -5,7 +5,7 @@ The main objective of this script is to check the expiration date of an SSL cert
 Usage: certcheck -H [Hostname or IP] -p [port] -s (cSv Output)<br>
 -H --host: Hostname or IP <br>
 -p --port: HTTPS port <br>
--s --silent: Output in CSV format<br>
+-s --csv: Output in CSV format<br>
  
 #Examples:
 certcheck.py -H google.es <br>
