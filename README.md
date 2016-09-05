@@ -2,10 +2,10 @@
 The main objective of this script is to check the expiration date of an SSL certificate in the simplest way possible using OpenSSL binary. 
 
 #Usage
-Usage: certcheck -H [Hostname or IP] -p [port] -s (silent)<br>
+Usage: certcheck -H [Hostname or IP] -p [port] -s (cSv Output)<br>
 -H --host: Hostname or IP <br>
 -p --port: HTTPS port <br>
--s --silent: Returns only the difference in days between Now and expire date <br>
+-s --silent: Output in CSV format<br>
  
 #Examples:
 certcheck.py -H google.es <br>
