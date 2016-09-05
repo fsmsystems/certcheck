@@ -35,10 +35,10 @@ def print_to_stdout(diff_date,silent,obj_expiredate):
 
 def usage(version):
         print 'Certcheck '+version+ '(LLSVDC)'
-        print 'Usage: certcheck -H [Hostname or IP] -p [port] -w [days warning] -c [days critical] -s (silent)' 
+        print 'Usage: certcheck -H [Hostname or IP] -p [port] -w [days warning] -c [days critical] -s (cSv mode)' 
         print ' -H --host: Hostname or IP'
         print ' -p --port: HTTPS port'
-        print ' -s --silent: Returns only the number of the days remaining'
+        print ' -s --silent: Output in CSV format'
         print 'SEE THE MAN PAGE (https://github.com/fsmsystems/certcheck)  FOR MORE OPTIONS AND EXAMPLES'
         sys.exit(0)
 
