@@ -75,7 +75,7 @@ if __name__ == "__main__":
         date_today = datetime.datetime.now()    # Today Now date to compare
 
         try:    # This will be the command to send to system with openssl
-            openssl_cmd='echo | '+openssl_bin+' s_client -connect '+str(_host)+':'+str(_port)+' 2>/dev/null | '+openssl_bin+' x509 -noout -dates'
+            openssl_cmd='echo | '+openssl_bin+' s_client -servername '+str(_host)+' -connect '+str(_host)+':'+str(_port)+' 2>/dev/null | '+openssl_bin+' x509 -noout -dates'
         except NameError:
             print "Check the inserted parameters please. Is missing something"
             sys.exit(1)
